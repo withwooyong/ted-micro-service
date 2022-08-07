@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com.ted.micro: DEBUG

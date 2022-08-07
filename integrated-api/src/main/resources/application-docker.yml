@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+app:
+  product-server:
+    host: product
+    port: 8080
+  recommend-server:
+    host: recommend
+    port: 8080
+  review-server:
+    host: review
+    port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.ted.micro: DEBUG

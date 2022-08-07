@@ -1,0 +1,31 @@
+server:
+  port: 7001
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com.ted.micro: DEBUG
+
+spring:
+  application:
+    name: product-server
+#  main:
+#    web-application-type: reactive
+#  config:
+#    import: "configserver:http://localhost:8090"
+#  cloud:
+#    config: # Ex) `http://localhost:8090/config/test`
+#      name: config # config name
+#      profile: dev # config profile
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka #Eureka Server 명시

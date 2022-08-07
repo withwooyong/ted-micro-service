@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'java'
+}
+
+bootJar.enabled(false)
+jar.enabled(true)
+
+group = 'com.ted.micro'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'io.projectreactor:reactor-test'
+}
+
+//dependencyManagement {
+//    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+//}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

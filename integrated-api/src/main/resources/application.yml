@@ -1,0 +1,85 @@
+server:
+  port: 7000
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+app:
+  product-server:
+    host: localhost
+    port: 7001
+  recommend-server:
+    host: localhost
+    port: 7002
+  review-server:
+    host: localhost
+    port: 7003
+
+logging:
+  level:
+    root: INFO
+    com.ted.micro: DEBUG
+#  pattern:
+#    console: "%style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable"
+
+spring:
+  application:
+    name: integrated-api
+
+#  config:
+#    import: "configserver:http://localhost:8090"
+#  cloud:
+#    config: # Ex) `http://localhost:8090/config/test`
+#      name: config # config name
+#      profile: dev # config profile
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka #Eureka Server 명시
+
+api:
+  common:
+    version: 1.0.0
+    title: Sample API
+    description: Description of the API...
+    termsOfServiceUrl: MINE TERMS OF SERVICE URL
+    license: License
+    licenseUrl: MY LICENSE URL
+    contact:
+      name: Contact
+      url: My
+      email: me@mail.com
+
+  product-aggregate:
+    get-aggregate-product:
+      description: Returns a aggregate view of the specified product id
+      notes: |
+        # Normal response
+        If the requested product id is found the method will return information regarding:
+        1. Base product information
+        1. Reviews
+        1. Recommendations
+        1. Service Addresses\n(technical information regarding the addresses of the microservices that created the response)
+
+        # Expected partial and error responses
+        In the following cases, only a partial response be created (used to simplify testing of error conditions)
+
+        ## Product id 113
+        200 - Ok, but no recommends will be returned
+
+        ## Product id 213
+        200 - Ok, but no reviews will be returned
+
+        ## Non numerical product id
+        400 - A <b>Bad Request</b> error will be returned
+
+        ## Product id 13
+        404 - A <b>Not Found</b> error will be returned
+
+        ## Negative product ids
+        422 - An <b>Unprocessable Entity</b> error will be returned

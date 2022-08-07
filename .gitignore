@@ -1,0 +1,20 @@
+# Project exclude paths
+/.gradle/
+/api/build/
+/api/build/classes/java/main/
+/integrated-api/build/
+/integrated-api/build/classes/java/main/
+/integrated-api/build/classes/java/test/
+/integrated-api/out/
+/product-server/build/
+/product-server/build/classes/java/main/
+/product-server/build/classes/java/test/
+/product-server/out/
+/recommend-server/build/
+/recommend-server/build/classes/java/test/
+/review-server/build/
+/review-server/build/classes/java/main/
+/review-server/build/classes/java/test/
+/util/build/
+/util/build/classes/java/main/
+/util/out/

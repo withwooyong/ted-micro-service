@@ -1,0 +1,7 @@
+rootProject.name = 'ted-micro-service'
+include 'product-server'
+include 'integrated-api'
+include 'recommend-server'
+include 'review-server'
+include 'api'
+include 'util'

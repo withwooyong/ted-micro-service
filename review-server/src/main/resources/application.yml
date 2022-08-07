@@ -1,0 +1,40 @@
+server:
+  port: 7003
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com.ted.micro: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+spring:
+  application:
+    name: review-server
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost/review-db
+    username: user
+    password: pwd
+    hikari:
+      initialization-fail-timeout: 60000
+#  config:
+#    import: "configserver:http://localhost:8090"
+#  cloud:
+#    config: # Ex) `http://localhost:8090/config/test`
+#      name: config # config name
+#      profile: dev # config profile
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://127.0.0.1:8761/eureka #Eureka Server 명시
